@@ -4,6 +4,10 @@ import { useMenu } from '../_context/MenuContext';
 
 const Footer = () => {
   const { menuOpen, closeMenu } = useMenu();
+
+  const currentYear = new Date().getFullYear();
+
+
   return (
     <>
       <footer className="site-footer" id='myFoot'>
@@ -23,7 +27,7 @@ const Footer = () => {
             </div>
             {/* /.inner-container */}
             <div className="inner-container">
-              <p>© Copyright 2023 Exhibition. All Rights Reserved</p>
+              <p>© Copyright {currentYear} Exhibition. All Rights Reserved</p>
               <a href="index.php" className="site-footer__bottom-logo"></a>
               <div className="site-footer__bottom-links">
                 <a href="#">
@@ -122,7 +126,7 @@ const Footer = () => {
           {/* /.side-content__block-contact */}
           <p className="side-content__block__text site-footer__copy-text">
             <a href="#">Exhibition Travelling</a> <i className="fa fa-copyright" />{" "}
-            2023 All Right Reserved
+            {currentYear} All Right Reserved
           </p>
         </div>
         {/* /.side-content__block-inner */}
@@ -137,125 +141,112 @@ const Footer = () => {
 
 
 
-      <div className={`side-menu__block ${menuOpen ? 'active' : ''}`}>
-      <a href="#" className="side-menu__toggler side-menu__close-btn" onClick={closeMenu}>
-        <i className="fa fa-times" />
-      </a>
-      <div className="side-menu__block-overlay custom-cursor__overlay">
-        <div className="cursor" style={{ top: 52, left: 314 }} />
-        <div className="cursor-follower" style={{ top: 30, left: 292 }} />
+      <div className={`side-menu__block ${menuOpen ? 'active' : ''}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  <a href="#" className="side-menu__toggler side-menu__close-btn" onClick={closeMenu} style={{ alignSelf: 'flex-end' }}>
+    <i className="fa fa-times" />
+  </a>
+  <div className="side-menu__block-overlay custom-cursor__overlay">
+    <div className="cursor" style={{ top: 52, left: 314 }} />
+    <div className="cursor-follower" style={{ top: 30, left: 292 }} />
+  </div>
+  <div className="side-menu__block-inner mCustomScrollbar _mCS_1 mCS_no_scrollbar" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div
+      id="mCSB_1"
+      className="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside"
+      style={{ maxHeight: 'none' }}
+      tabIndex={0}
+    >
+      <div
+        id="mCSB_1_container"
+        className="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+        style={{ position: 'relative', top: 0, left: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+        dir="ltr"
+      >
+        <a href="/" className="side-menu__logo" style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+          <img
+            src="assets/images/logo.jpg"
+            alt=""
+            width={143}
+            className="mCS_img_loaded"
+          />
+        </a>
+        <nav className="mobile-nav__container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <ul className="main-nav__navigation-box" style={{ padding: 0, margin: 0, listStyleType: 'none' }}>
+            <li className="dropdown1 current" style={{ marginBottom: '-7px' }}>
+              <a href="/art" style={{ textAlign: 'center' }}>
+                Art Exhibitions
+              </a>
+            </li>
+            <li className="dropdown1" style={{ marginBottom: '-7px' }}>
+              <a href="/photo" style={{ textAlign: 'center' }}>
+                Photography Exhibitions
+              </a>
+            </li>
+            <li className="dropdown1" style={{ marginBottom: '-7px' }}>
+              <a href="/service" style={{ textAlign: 'center' }}>
+                Exhibition Services
+              </a>
+            </li>
+            <li className="dropdown1" style={{ marginBottom: '-7px' }}>
+              <a href="/about" style={{ textAlign: 'center' }}>
+                About LTE
+              </a>
+            </li>
+            <li className="dropdown1" style={{ marginBottom: '-7px' }}>
+              <a href="#contact" style={{ textAlign: 'center' }}>
+                Contact Mailinglist
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <p className="side-menu__block__copy" style={{ textAlign: 'center', marginTop: '20px' }}>
+          (c) {currentYear} <a href="#">Landan Traveling Exhibition</a> - All rights reserved.
+        </p>
+        <div className="side-menu__social" style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+          <a href="#" style={{ margin: '0 5px' }}>
+            <i className="fab fa-facebook-f" />
+          </a>
+          <a href="#" style={{ margin: '0 5px' }}>
+            <i className="fab fa-google-plus" />
+          </a>
+          <a href="#" style={{ margin: '0 5px' }}>
+            <i className="fab fa-twitter" />
+          </a>
+          <a href="#" style={{ margin: '0 5px' }}>
+            <i className="fab fa-instagram" />
+          </a>
+          <a href="#" style={{ margin: '0 5px' }}>
+            <i className="fab fa-pinterest-p" />
+          </a>
+        </div>
       </div>
-      <div className="side-menu__block-inner mCustomScrollbar _mCS_1 mCS_no_scrollbar">
-        <div
-          id="mCSB_1"
-          className="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside"
-          style={{ maxHeight: "none" }}
-          tabIndex={0}
-        >
+      <div
+        id="mCSB_1_scrollbar_vertical"
+        className="mCSB_scrollTools mCSB_1_scrollbar mCS-dark mCSB_scrollTools_vertical"
+        style={{ display: 'none' }}
+      >
+        <div className="mCSB_draggerContainer">
           <div
-            id="mCSB_1_container"
-            className="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
-            style={{ position: "relative", top: 0, left: 0 }}
-            dir="ltr"
+            id="mCSB_1_dragger_vertical"
+            className="mCSB_dragger"
+            style={{
+              position: 'absolute',
+              minHeight: 30,
+              height: 0,
+              top: 0,
+              display: 'block',
+              maxHeight: 175
+            }}
           >
-            <a href="/" className="side-menu__logo">
-              <img
-                src="assets/images/logo.jpg"
-                alt=""
-                width={143}
-                className="mCS_img_loaded"
-              />
-            </a>
-            <nav className="mobile-nav__container">
-              <ul className="main-nav__navigation-box">
-                <li className="dropdown1 current">
-                  <a
-                    href="/art"
-                    style={{
-                      textAlign: "center",
-                      marginLeft: 32,
-                      marginBottom: "-7px"
-                    }}
-                  >
-                    Art Exhibitions
-                  </a>
-                </li>
-                <li className="dropdown1">
-                  <a href="/photo" style={{ textAlign: "center", marginBottom: "-7px" }}>
-                    Photography Exhibitions
-                  </a>
-                </li>
-                <li className="dropdown1">
-                  <a href="/service" style={{ textAlign: "center", marginBottom: "-7px" }}>
-                    Exhibition Services
-                  </a>
-                </li>
-                <li className="dropdown1">
-                  <a href="/about" style={{ textAlign: "center", marginBottom: "-7px" }}>
-                    About LTE
-                  </a>
-                </li>
-                <li className="dropdown1">
-                  <a
-                    href="#contact"
-                    style={{
-                      textAlign: "center",
-                      marginBottom: "-7px",
-                      marginLeft: 10
-                    }}
-                  >
-                    Contact Mailinglist
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <p className="side-menu__block__copy">
-              (c) 2023 <a href="#">Landan Traveling Exhibition</a> - All rights reserved.
-            </p>
-            <div className="side-menu__social">
-              <a href="#">
-                <i className="fab fa-facebook-f" />
-              </a>
-              <a href="#">
-                <i className="fab fa-google-plus" />
-              </a>
-              <a href="#">
-                <i className="fab fa-twitter" />
-              </a>
-              <a href="#">
-                <i className="fab fa-instagram" />
-              </a>
-              <a href="#">
-                <i className="fab fa-pinterest-p" />
-              </a>
-            </div>
+            <div className="mCSB_dragger_bar" style={{ lineHeight: 30 }} />
           </div>
-          <div
-            id="mCSB_1_scrollbar_vertical"
-            className="mCSB_scrollTools mCSB_1_scrollbar mCS-dark mCSB_scrollTools_vertical"
-            style={{ display: "none" }}
-          >
-            <div className="mCSB_draggerContainer">
-              <div
-                id="mCSB_1_dragger_vertical"
-                className="mCSB_dragger"
-                style={{
-                  position: "absolute",
-                  minHeight: 30,
-                  height: 0,
-                  top: 0,
-                  display: "block",
-                  maxHeight: 175
-                }}
-              >
-                <div className="mCSB_dragger_bar" style={{ lineHeight: 30 }} />
-              </div>
-              <div className="mCSB_draggerRail" />
-            </div>
-          </div>
+          <div className="mCSB_draggerRail" />
         </div>
       </div>
     </div>
+  </div>
+</div>
+
 
 
 
