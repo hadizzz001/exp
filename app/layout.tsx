@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { MenuProvider } from '../app/_context/MenuContext';
+import Nav  from '../app/components/Nav';
+import Footer  from '../app/components/Footer'; 
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +19,45 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <MenuProvider>
+      <html lang="en">
+        <>
+          <meta httpEquiv="content-type" content="text/html;charset=utf-8" />
+          <meta charSet="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>exhibition</title>
+          <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png" />
+          <link rel="manifest" href="assets/images/favicon/site.webmanifest" />
+          <link href="https://fonts.googleapis.com/css?family=Karla:400,700%7CPlayfair+Display:400,500,600,700,800,900&display=swap" rel="stylesheet" />
+          <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+          <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css" />
+          <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" />
+          <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+          <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css" />
+          <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+          <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+          <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+          <link rel="stylesheet" href="assets/css/animate.css" />
+          <link rel="stylesheet" href="assets/css/hover-min.css" />
+          <link rel="stylesheet" href="assets/css/muzex-icons.css" /> 
+          <link rel="stylesheet" href="assets/css/style.css" />
+          <link rel="stylesheet" href="assets/css/responsive.css" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+          <style
+            type="text/css"
+            dangerouslySetInnerHTML={{
+              __html: "\n@media only screen and (max-width: 600px) {\n.logo-resp {\nmargin-top: 14px;\nmargin-bottom: 15px;\n}\n.fresp{\nmargin-top:60px;\n}\n.mCS_img_loaded{\nmargin-left:50px;\n}\n}\n"
+            }}
+          />
+          <body className={inter.className}>
+            <Nav />
+            {children}
+            <Footer />
+          </body>
+        </>
+      </html>
+    </MenuProvider>
   );
 }
