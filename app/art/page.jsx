@@ -6,6 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 const fetchContentfulData = async () => {
   const res = await client.getEntries({
     content_type: 'post', // Replace with your actual content type ID
+    include: 10
   });
   return res.items;
 };
