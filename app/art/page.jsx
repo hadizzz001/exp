@@ -1,18 +1,16 @@
 // app/page.js
-import client from '../libs/contentful';
-import Image from 'next/image';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import client from '../libs/contentful'; 
 
-const fetchContentfulData = async () => {
-  const res = await client.getEntries({
+const fetchContentfulData =  () => {
+  const res =  client.getEntries({
     content_type: 'post', // Replace with your actual content type ID
     include: 10
   });
   return res.items;
 };
 
-const HomePage = async () => {
-  const data = await fetchContentfulData();
+const HomePage =  () => {
+  const data =  fetchContentfulData();
 
   return (
     <div>
