@@ -8,9 +8,6 @@ import { Autoplay } from 'swiper/modules';
  
 const BannerCarousel = ({data}) => {
 
-
-
-console.log("Carousel: ",data);
  
 
 

@@ -23,17 +23,24 @@ export default async function Home() {
     });
     return res.items;
   };
+
+  const fetchContentfulData2 = async () => {
+    const res = await client.getEntries({
+      content_type: 'homePost',
+      include: 10
+    });
+    return res.items;
+  };
  
 
   const data =  await fetchContentfulData();
   const title =  await fetchContentfulData1(); 
+  const postss =  await fetchContentfulData2(); 
  
   
  
 
-
  
-
 
   return (
     <>
@@ -42,7 +49,7 @@ export default async function Home() {
       </div>
 
       <Title data={title}/>
-      <HomePost  />
+      <HomePost exhibitions={postss} />
  
     </>
   );

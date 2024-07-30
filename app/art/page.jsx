@@ -1,16 +1,17 @@
 // app/page.js
 import client from '../libs/contentful'; 
 
-const fetchContentfulData =  () => {
-  const res =  client.getEntries({
-    content_type: 'post', // Replace with your actual content type ID
-    include: 10
+const fetchContentfulData = async () => {
+  const res = await client.getEntries({
+    content_type: 'post' 
   });
   return res.items;
 };
 
-const HomePage =  () => {
-  const data =  fetchContentfulData();
+const HomePage = async() => {
+  const data = await fetchContentfulData();
+
+console.log("data: ",data);
 
   return (
     <div>
