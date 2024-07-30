@@ -23,16 +23,10 @@ export default async function Home() {
     });
     return res.items;
   };
-  const fetchContentfulData2 = async () => {
-    const res = await client.getEntries({
-      content_type: 'homePost', // Replace with your actual content type ID
-    });
-    return res.items;
-  };
+ 
 
   const data =  await fetchContentfulData();
-  const title =  await fetchContentfulData1();
-  // const homePosts =  await fetchContentfulData2();
+  const title =  await fetchContentfulData1(); 
  
   
  

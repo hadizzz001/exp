@@ -10,7 +10,7 @@ const YourComponent = () => {
 
   const fetchExhibitions = async () => {
     try {
-      const response = await client.getEntries({ content_type: 'homePost' });
+      const response = await client.getEntries({ content_type: 'homePost',include: 10  });
       const items = response.items.map(item => ({
         title: item.fields.title,
         subTitle: item.fields.subTitle,
