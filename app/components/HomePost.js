@@ -34,32 +34,33 @@ const HomePost = ({exhibitions}) => {
   // }, []);
 
   return (
-    <div className=" ">
-    {exhibitionChunks.length > 0 ? (
-      exhibitionChunks.map((chunk, index) => (
-        <div key={index} className="row justify-content-center mt-4">
-          {chunk.map((item, subIndex) => (
-            <div key={subIndex} className="col-12 col-md-6 col-lg-4 d-flex flex-column align-items-center text-center mb-4">
-              <h3 className="h4" style={{ fontWeight: "800"}}>{item.fields.title}</h3>
-              <div className="exhibition-one__image mb-2">
-                <img src={item.fields.image.fields.file.url} style={{ width: "280px"}} alt="" className="img-fluid" />
-              </div>
-              <div className="exhibition-one__content p-2">
-                <p className="h6" style={{textTransform: "lowercase"}}>{item.fields.subTitle}</p>
-                <div className="w-100 text-justify text-sm md:text-base">
-                  <p>{item.fields.description.content[0].value}</p>
-                </div>
+<div className="container">
+  {exhibitionChunks.length > 0 ? (
+    exhibitionChunks.map((chunk, index) => (
+      <div key={index} className="row justify-content mt-4">
+        {chunk.map((item, subIndex) => (
+          <div key={subIndex} className="col-12 col-md-6 col-lg-6 d-flex flex-column align-items-center text-center mb-4">
+            <h3 className="h4 font-weight-bold">{item.fields.title}</h3>
+            <div className="mb-2">
+              <img src={item.fields.image.fields.file.url} className="img-fluid"   alt={item.fields.title} />
+            </div>
+            <div className="p-2">
+              <p className="h6">{item.fields.subTitle}</p>
+              <div className="text-justify">
+                <p>{item.fields.description.content[0].value}</p>
               </div>
             </div>
-          ))}
-        </div>
-      ))
-    ) : (
-      <div className='home___error-container text-center'>
-        <h2 className='text-black h5 font-bold'>No Exhibitions Available</h2>
+          </div>
+        ))}
       </div>
-    )}
-  </div>
+    ))
+  ) : (
+    <div className="text-center">
+      <h2 className="text-dark h5 font-weight-bold">No Exhibitions Available</h2>
+    </div>
+  )}
+</div>
+
 
   );
 };
