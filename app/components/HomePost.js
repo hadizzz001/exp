@@ -34,7 +34,7 @@ const HomePost = ({exhibitions}) => {
   // }, []);
 
   return (
-<div className="container">
+<div className="container mt-20">
   {exhibitionChunks.length > 0 ? (
     exhibitionChunks.map((chunk, index) => (
       <div key={index} className="row justify-content mt-4">
