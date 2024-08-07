@@ -1,20 +1,20 @@
 // app/page.js
-import client from '../libs/contentful'; 
+import client from '../libs/contentful';
 
 const fetchContentfulData = async () => {
   const res = await client.getEntries({
-    content_type: 'post' 
+    content_type: 'post'
   });
   return res.items;
 };
 
-const HomePage = async() => {
+const HomePage = async () => {
   const data = await fetchContentfulData();
 
-console.log("data: ",data);
+  console.log("data: ", data);
 
   return (
-    <div>
+    <div className='container'>
       {data && data.length > 0 ? (
         data.map((item, index) => (
           index % 2 === 0 && (
@@ -28,8 +28,20 @@ console.log("data: ",data);
                   />
                 </div>
                 <div className="exhibition-one__content w-full max-w-[400px] p-4">
-                  <b className="text-xl text-center">{item.fields.title}</b>
-                  <p className="mt-4 text-justify">{item.fields.summary}</p>
+                  <b className="text-xl text-center" style={{ fontSize: "30px" }}>{item.fields.title}</b>
+                  <p
+                    className="mt-4 text-justify"
+                    style={{
+                      textTransform: 'lowercase',
+                      display: '-webkit-box',
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                      WebkitLineClamp: 4,
+                      lineClamp: 4,
+                    }}
+                  >
+                    {item.fields.summary}
+                  </p>
                   <div className="btn-box mt-4">
                     <a
                       href={`/${item.sys.id}`}
@@ -50,8 +62,16 @@ console.log("data: ",data);
                     />
                   </div>
                   <div className="exhibition-one__content w-full max-w-[400px] p-4">
-                    <b className="text-xl text-center">{data[index + 1].fields.title}</b>
-                    <p className="mt-4 text-justify">{data[index + 1].fields.summary}</p>
+                    <b className="text-xl text-center" style={{ fontSize: "30px" }}>{data[index + 1].fields.title}</b>
+                    <p className="mt-4 text-justify"
+                      style={{
+                        textTransform: 'lowercase',
+                        display: '-webkit-box',
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                        WebkitLineClamp: 4,
+                        lineClamp: 4,
+                      }}>{data[index + 1].fields.summary}</p>
                     <div className="btn-box mt-4">
                       <a
                         href={`/${data[index + 1].sys.id}`}
@@ -71,6 +91,12 @@ console.log("data: ",data);
           <h2 className="text-black text-xl font-bold">No data available</h2>
         </div>
       )}
+            <style
+  dangerouslySetInnerHTML={{
+    __html:
+      "\n\n  @media(min-width: 1200px){\n    .container{\n      max-width:850px !important;\n    }\n  }\n"
+  }}
+/>
     </div>
   );
 };

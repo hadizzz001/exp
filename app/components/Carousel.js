@@ -17,7 +17,7 @@ const BannerCarousel = ({data}) => {
     <div className="container"> {/* Set container height */}
     {data && data.length > 0 ? (
                         <Swiper spaceBetween={50} loop modules={[Autoplay]} autoplay={{
-                          delay: 2000,
+                          delay: 4000,
                           stopOnLastSlide: false,
                           reverseDirection: true
                         }}  >

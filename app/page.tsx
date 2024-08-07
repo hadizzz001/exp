@@ -50,7 +50,13 @@ export default async function Home() {
 
       <Title data={title}/>
       <HomePost exhibitions={postss} />
- 
+      <style
+  dangerouslySetInnerHTML={{
+    __html:
+      "\n\n  @media(min-width: 1200px){\n    .container{\n      max-width:850px !important;\n    }\n  }\n"
+  }}
+/>
+
     </>
   );
 }

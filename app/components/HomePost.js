@@ -34,19 +34,19 @@ const HomePost = ({exhibitions}) => {
   // }, []);
 
   return (
-    <div>
+    <div className=" ">
     {exhibitionChunks.length > 0 ? (
       exhibitionChunks.map((chunk, index) => (
-        <div key={index} className="flex flex-wrap justify-center mt-8">
+        <div key={index} className="row justify-content-center mt-4">
           {chunk.map((item, subIndex) => (
-            <div key={subIndex} className="flex-item-project flex flex-col items-center text-center">
-              <h3 className="text-lg">{item.fields.title}</h3>
-              <div className="exhibition-one__image grid grid-cols-1">
-                <img src={item.fields.image.fields.file.url} alt="" className="w-full" />
+            <div key={subIndex} className="col-12 col-md-6 col-lg-4 d-flex flex-column align-items-center text-center mb-4">
+              <h3 className="h5">{item.fields.title}</h3>
+              <div className="exhibition-one__image mb-2">
+                <img src={item.fields.image.fields.file.url} alt="" className="img-fluid" />
               </div>
-              <div className="exhibition-one__content flex flex-col items-center text-xs p-2">
-                <b className="text-lg">{item.fields.subTitle}</b>
-                <div className="w-[230px] md:w-[400px] text-justify text-sm md:text-base">
+              <div className="exhibition-one__content p-2">
+                <b className="h6">{item.fields.subTitle}</b>
+                <div className="w-100 text-justify text-sm md:text-base">
                   <p>{item.fields.description.content[0].value}</p>
                 </div>
               </div>
@@ -55,8 +55,8 @@ const HomePost = ({exhibitions}) => {
         </div>
       ))
     ) : (
-      <div className='home___error-container'>
-        <h2 className='text-black text-xl font-bold'>No Exhibitions Available</h2>
+      <div className='home___error-container text-center'>
+        <h2 className='text-black h5 font-bold'>No Exhibitions Available</h2>
       </div>
     )}
   </div>

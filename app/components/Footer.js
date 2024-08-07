@@ -26,22 +26,23 @@ const Footer = () => {
               {/* /.site-footer__bottom-links */}
             </div>
             {/* /.inner-container */}
-            <div className="inner-container">
-              <p>© Copyright {currentYear} Exhibition. All Rights Reserved</p>
-              <a href="index.php" className="site-footer__bottom-logo"></a>
-              <div className="site-footer__bottom-links">
-                <a href="#">
-                  <b>Email :</b> exhibition@gmail.com
-                </a>
-                <a href="#">
-                  <b>Mob :</b> +91-9874785874
-                </a>
-                <a href="#">
-                  <b>Add :</b> Rock St 12, Newyork City, USA
-                </a>
-              </div>
-              {/* /.site-footer__bottom-links */}
-            </div>
+            <div className="flex flex-col items-center text-center p-6">
+      <p className="mb-2">© Copyright {currentYear} Exhibition. All Rights Reserved</p>
+      {/* <a href="index.php" className="mb-2">
+        <img src="assets/images/logo.jpg" alt="Logo" className="h-12" />
+      </a> */}
+      <div className="flex flex-col items-center space-y-2">
+        <a href="#" className="mb-2">
+          <b>Email :</b> exhibition@gmail.com
+        </a>
+        <a href="#" className="mb-2">
+          <b>Mob :</b> +91-9874785874
+        </a>
+        <a href="#" className="mb-2">
+          <b>Add :</b> Rock St 12, New York City, USA
+        </a>
+      </div>
+    </div>
             {/* /.inner-container */}
           </div>
           {/* /.container */}

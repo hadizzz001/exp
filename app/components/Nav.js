@@ -41,8 +41,7 @@ const Nav = () => {
                 <a
                   href="art"
                   style={{
-                    textAlign: "center",
-                    marginLeft: 32,
+                    textAlign: "center", 
                     marginBottom: "-7px"
                   }}
                 >
