@@ -44,7 +44,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className={styles.carouselContainer}>
+      <div className={styles.carouselContainer}  >
         <Carousel data={data}/>
       </div>
 

@@ -97,6 +97,13 @@ const HomePage = async () => {
       "\n\n  @media(min-width: 1200px){\n    .container{\n      max-width:850px !important;\n    }\n  }\n"
   }}
 />
+
+<style
+  dangerouslySetInnerHTML={{
+    __html: "\n  .flex-item-projectsecound{ \n    padding:0 !important;\n}\n"
+  }}
+/>
+
     </div>
   );
 };

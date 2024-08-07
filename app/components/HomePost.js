@@ -40,12 +40,12 @@ const HomePost = ({exhibitions}) => {
         <div key={index} className="row justify-content-center mt-4">
           {chunk.map((item, subIndex) => (
             <div key={subIndex} className="col-12 col-md-6 col-lg-4 d-flex flex-column align-items-center text-center mb-4">
-              <h3 className="h5">{item.fields.title}</h3>
+              <h3 className="h4" style={{ fontWeight: "800"}}>{item.fields.title}</h3>
               <div className="exhibition-one__image mb-2">
-                <img src={item.fields.image.fields.file.url} alt="" className="img-fluid" />
+                <img src={item.fields.image.fields.file.url} style={{ width: "280px"}} alt="" className="img-fluid" />
               </div>
               <div className="exhibition-one__content p-2">
-                <b className="h6">{item.fields.subTitle}</b>
+                <p className="h6" style={{textTransform: "lowercase"}}>{item.fields.subTitle}</p>
                 <div className="w-100 text-justify text-sm md:text-base">
                   <p>{item.fields.description.content[0].value}</p>
                 </div>
