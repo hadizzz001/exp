@@ -7,7 +7,7 @@ const Nav = () => {
   const { toggleMenu } = useMenu();
  
   return (
-    <div className="page-wrapper" style={{marginBottom:"3em"}}>
+    <div className="page-wrapper" style={{marginBottom:"1em"}}>
     <nav
       className="main-nav-one stricky"
       style={{ marginTop: "-33px", marginBottom: "-33px" }}

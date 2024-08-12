@@ -14,17 +14,19 @@ const HomePage = async () => {
   console.log("data: ", data);
 
   return (
-    <div className='container'>
+    <>
+    <h2 className='container m-10' style={{textAlign:'center'}}>Art Exhibitions</h2>
+    <div id="homepp">
       {data && data.length > 0 ? (
         data.map((item, index) => (
           index % 2 === 0 && (
             <div key={index} className="flex flex-wrap justify-center gap-6">
-              <div className="flex-item-projectsecound flex flex-col items-center text-center">
+              <div className="flex-item-projectsecound flex flex-col items-center text-center mb-10">
                 <div className="exhibition-one__image w-full max-w-[400px]">
                   <img
                     src={item.fields.cover.fields.file.url}
                     alt=""
-                    className="w-full h-auto"
+                    className="w-full h-[200px]  "
                   />
                 </div>
                 <div className="exhibition-one__content w-full max-w-[400px] p-4">
@@ -53,12 +55,12 @@ const HomePage = async () => {
                 </div>
               </div>
               {data[index + 1] && (
-                <div className="flex-item-projectsecound flex flex-col items-center text-center">
+                <div className="flex-item-projectsecound flex flex-col items-center text-center mb-10">
                   <div className="exhibition-one__image w-full max-w-[400px]">
                     <img
                       src={data[index + 1].fields.cover.fields.file.url}
                       alt=""
-                      className="w-full h-auto"
+                      className="w-full h-[200px]  "
                     />
                   </div>
                   <div className="exhibition-one__content w-full max-w-[400px] p-4">
@@ -104,7 +106,15 @@ const HomePage = async () => {
   }}
 />
 
+<style
+  dangerouslySetInnerHTML={{
+    __html:
+      "\n\n  @media(min-width: 1200px){\n    .container{\n      max-width:850px !important;\n    }\n  }\n"
+  }}
+/>
+
     </div>
+    </>
   );
 };
 
