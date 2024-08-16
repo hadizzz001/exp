@@ -1,14 +1,14 @@
- 
- 
- 
+
+
+
 import styles from '../public/CustomCarousel.module.css';
 import Carousel from './components/Carousel';
 import Title from './components/Title';
 import HomePost from './components/HomePost';
-import client from './libs/contentful'; 
+import client from './libs/contentful';
 
 export default async function Home() {
- 
+
 
 
   const fetchContentfulData = async () => {
@@ -31,31 +31,31 @@ export default async function Home() {
     });
     return res.items;
   };
- 
 
-  const data =  await fetchContentfulData();
-  const title =  await fetchContentfulData1(); 
-  const postss =  await fetchContentfulData2(); 
- 
-  
- 
 
- 
+  const data = await fetchContentfulData();
+  const title = await fetchContentfulData1();
+  const postss = await fetchContentfulData2();
+
+
+
+
+
 
   return (
     <>
       <div className={styles.carouselContainer}  >
-        <Carousel data={data}/>
+        <Carousel data={data} />
       </div>
 
-      <Title data={title}/>
+      <Title data={title} />
       <HomePost exhibitions={postss} />
       <style
-  dangerouslySetInnerHTML={{
-    __html:
-      "\n\n  @media(min-width: 1200px){\n    .container{\n      max-width:850px !important;\n    }\n  }\n"
-  }}
-/>
+        dangerouslySetInnerHTML={{
+          __html:
+            "\n\n  @media(min-width: 1200px){\n    .container{\n      max-width:850px !important;\n    }\n  }\n"
+        }}
+      />
 
     </>
   );
