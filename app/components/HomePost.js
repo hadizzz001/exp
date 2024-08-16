@@ -14,31 +14,38 @@ const HomePost = ({ exhibitions }) => {
 
 
   return (
-    <>
-<div id="homepp">
+    <> 
+<div id="homepp" className="max-w-screen-xl mx-auto px-4">
   {exhibitionChunks.length > 0 ? (
     exhibitionChunks.map((chunk, index) => (
-      <div key={index} className="row justify-content-between mb-5">
+      <div key={index} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-1 mb-[3em] place-items-center " >
         {chunk.map((item, subIndex) => {
-          // Calculate the index of the current item
           const currentIndex = index * chunk.length + subIndex;
-          // Determine if the current item is one of the last two
           const hideTitle = exhibitionChunks.flat().length - currentIndex <= 2;
 
+          // Determine margin based on even/odd index
+          const marginStyle = currentIndex % 2 === 0 
+            ? { marginLeft: '5em' }
+            : { marginRight: '5em' };
+
           return (
-            <div key={subIndex} className="col-12 col-md-5 col-lg-5 text-center mb-4">
+            <div 
+              key={subIndex} 
+              className="text-center sm:mx-0" // Remove margins on small screens
+              style={window.innerWidth >= 640 ? marginStyle : {}}
+            >
               {!hideTitle && (
-                <h3 className="h4 font-weight-bold mb-3">{item.fields.title}</h3>
+                <h3 className="text-lg font-bold mb-1">{item.fields.title}</h3>
               )}
-              <div className="mb-3">
+              <div className="mb-1">
                 <img
                   src={item.fields.image.fields.file.url}
-                  className="w-full h-[200px] mb-3"
+                  className="fixed-dimensions mx-auto"
                   alt={item.fields.title}
                 />
               </div>
-              <div className="p-3">
-                <p className="h6 mb-2">{item.fields.subTitle}</p>
+              <div className="p-2 text-center">
+                <p className="text-base mb-1">{item.fields.subTitle}</p>
                 <div className="text-justify">
                   <p>{item.fields.description.content[0].value}</p>
                 </div>
@@ -46,24 +53,14 @@ const HomePost = ({ exhibitions }) => {
             </div>
           );
         })}
-        {chunk.length % 2 === 1 && <div className="col-1"></div>} {/* Empty column for spacing if odd number of items */}
       </div>
     ))
   ) : (
     <div className="text-center mt-5 mb-5">
-      <h2 className="text-dark h5 font-weight-bold">No Exhibitions Available</h2>
+      <h2 className="text-dark text-xl font-bold">No Exhibitions Available</h2>
     </div>
   )}
 </div>
-
-
-
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "\n#homepp {\n  margin-left: 15em;\n  margin-right: 15em;\n}\n\n/* Mobile styles */\n@media only screen and (max-width: 768px) {\n  #homepp {\n    margin-left: 0;\n    margin-right: 0;\n  }\n}\n"
-        }}
-      />
 
     </>
 
