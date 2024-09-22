@@ -57,7 +57,7 @@ const renderOptions = {
     },
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
       const entry = node.data.target.fields;
-      const images = entry.images || []; // Use default empty array if images field is missing
+      const images = entry.image || []; // Use default empty array if images field is missing
 
       return <ImageSwiper images={images} />;
     },
@@ -95,8 +95,7 @@ const EntryPage = async ({ params }) => {
   }
 
   return (
-    <div className="container my-4">
-      <h1 className="display-4 mb-4 text-center">{data.fields.title}</h1>
+    <div className="container my-4"> 
       <div className="rich-text-content">
         {documentToReactComponents(data.fields.content, renderOptions)}
       </div>

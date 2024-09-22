@@ -22,7 +22,7 @@ const BannerCarousel = ({data}) => {
       {data && data.length > 0 ? (
         <Carousel fade controls={false}>
           {data.map((item, index) => {
-            const imageObjects = item?.fields?.images || [];
+            const imageObjects = item?.fields?.image || [];
 
             return imageObjects.map((imageObj, imgIndex) => {
               const imageUrl = imageObj?.fields?.file?.url;
