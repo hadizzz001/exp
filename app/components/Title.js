@@ -25,7 +25,7 @@ const HomePost = ({ exhibitions }) => {
                chunk.map((item, subIndex) => {
 
                 return ( 
-                    <p className="about-one__highlighted-text text-center mb-[-30px] text-sm md:text-base p-20"  >
+                    <p key={index} className="about-one__highlighted-text text-center mb-[-30px] text-sm md:text-base p-20"  >
                       {documentToReactComponents(item.fields.title)}
                     </p> 
                 );
